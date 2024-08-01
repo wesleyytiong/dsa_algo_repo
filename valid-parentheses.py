@@ -1,5 +1,5 @@
 """
-    Practice Problem #1 Valid Anagram:
+    Practice Problem #1 Valid Parentheses:
     Given string s containing just the characters
     '(', ')','{','}', '[',']', determine if the input string is valid
     An input string is valid if:
