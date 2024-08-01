@@ -17,17 +17,17 @@ class Solution:
         closeToOpen = {"}": "{", "]": "[", ")": "("}
 
         #iterate through each character in string s
-        for char in s:
-            #condition if character is close bracket
+        for char in s: #O(n) since iterating through s 1 time
+            #condition if character is close bracket O(1)
             if char in closeToOpen:
                 #compare last value of non-empty stack to corresponding close bracket
                 if stack and stack[-1] == closeToOpen[char]:
-                    stack.pop()
+                    stack.pop() #popping from stack is O(1)
                 else:
                     return False
             #condition if character is open bracket
             else:
-                stack.append(char)
+                stack.append(char) #appending to stack is O(1) time 
         return True if not stack else False
 
 # Create an instance of the Solution class
@@ -39,3 +39,6 @@ s = "{[()]}"
 # Call the isValid method and print the result
 result = solution.isValid(s)
 print(result)
+
+#Total Time Complexity is O(n)
+#Total Space Complexity is O(n) where n is length of input string 's'
