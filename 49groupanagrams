@@ -1,19 +1,21 @@
 class Solution(object):
     def groupAnagrams(self, strs):
         
+    #Time complexity: O(m*n), Space Complexity, O(m*n), where m is length of string in list and n is length of list
+        
         #Initialize an empty dictionary
         dict = {}
         
         #loop through every string in the array
-        for string in strs:
+        for string in strs: #O(n) time
             count = [0]*26 #a-z, lowercase, 26 total characters
             
             #loop through every character in each string
-            for char in string:
+            for char in string: #O(m) time
                 count[ord(char)-ord("a")] +=1
                 
             #Convert count list to tuple (keys need to be immutable to be used as a key)
-            key = tuple(count)
+            key = tuple(count) #O(n*26), or O(n) space, O(1) time operation
             
             #If key is not in the dictionary, initialize it with empty list
             if key not in dict:
