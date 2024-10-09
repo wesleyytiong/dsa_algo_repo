@@ -1,0 +1,33 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        
+        #Initialize an empty dictionary
+        dict = {}
+        
+        #loop through every string in the array
+        for string in strs:
+            count = [0]*26 #a-z, lowercase, 26 total characters
+            
+            #loop through every character in each string
+            for char in string:
+                count[ord(char)-ord("a")] +=1
+                
+            #Convert count list to tuple (keys need to be immutable to be used as a key)
+            key = tuple(count)
+            
+            #If key is not in the dictionary, initialize it with empty list
+            if key not in dict:
+                dict[key] = []
+            
+            #append string to the count
+            dict[key].append(string)
+            
+        return list(dict.values())
+
+#Instantiate the solution class
+sol = Solution()
+
+print(sol.groupAnagrams(["eat","tea","tan","ate","nat","bat"])) #[['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]
+print(sol.groupAnagrams([""])) #[['']]
+print(sol.groupAnagrams(["a"])) #[['a']]
+    
